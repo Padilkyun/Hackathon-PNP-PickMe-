@@ -11,7 +11,136 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
+---
 
+## 🏗 System Architecture & Flow
+
+### 🔄 Overall System Flow
+
+```mermaid
+flowchart TD
+    A[User / Masyarakat] -->|Submit Laporan| B[Web / Mobile App]
+    B -->|Validasi URL + Metadata| C[Spam Detection ML]
+    C -->|Claim Extraction NLP| D[AI Analysis Engine]
+    D -->|Fact-check Score| E[Admin Dashboard]
+    F[Verifikator Pemerintah] -->|Review & Verdict| E
+    E -->|Cross-reference| G[Integrity Check Tool]
+    G -->|Domain Reputation<br/>SSL Cert<br/>Content Freshness| H[Verification Result]
+    H -->|Publish| I[Public View / Discussion]
+    A -->|Chat Query| J[AI Assistant Chatbot]
+    J -->|Confidence Scoring<br/>Official Sources| K[Instant Answer + Sources]
+    I -.->|Feedback Loop| D
+    K -.->|Learning Signal| D
+```
+
+### 👥 User Roles & Permissions
+
+| Role | Akses | Deskripsi |
+|------|-------|-----------|
+| **Reader (Publik)** | Submit laporan, Baca hasil verifikasi, Diskusi, Chatbot AI | Masyarakat umum yang melaporkan & mencari kebenaran |
+| **Verifier** | Review laporan, Set verdict, Cross-reference, Kelola prioritas | Petugas pemerintah/verifikator berwenang |
+| **Admin** | Full dashboard, Manajemen user, Analytics, Settings | Pengelola platform & sistem |
+
+### 📋 Verification Workflow (Step-by-Step)
+
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant W as Web/Mobile
+    participant ML as ML Pipeline
+    participant A as Admin Dashboard
+    participant V as Verifikator
+    participant DB as Database
+    
+    U->>W: Submit URL/Teks/Foto
+    W->>ML: Real-time URL Validation
+    ML-->>W: Metadata Preview + Spam Score
+    W->>ML: Claim Extraction NLP
+    ML-->>W: Extracted Claims + Entities
+    W->>DB: Save Draft (Auto-save)
+    U->>W: Confirm Submit
+    W->>DB: Create Report (Status: PENDING)
+    DB->>A: Real-time Notification
+    V->>A: Pick Up Report
+    V->>A: Run Integrity Check
+    A->>ML: Cross-reference Analysis
+    ML-->>A: Domain Rep, SSL, Freshness, Similarity
+    V->>A: Set Verdict (Approved/Rejected/Needs Review)
+    A->>DB: Update Status + Verdict
+    DB-->>U: Notification (Push/Email)
+    U->>W: View Result + Discussion Thread
+```
+
+---
+
+## 🤖 **Highlight: AI Assistant Chatbot (Beta)**
+
+> **Fitur unggulan** — Asisten verifikasi conversational yang tersedia di **Web & Mobile**
+
+### 🎯 Kemampuan Utama
+
+| Fitur | Deskripsi |
+|-------|-----------|
+| **Natural Language Query** | Tanya bebas: *"Apakah berita vaksin X benar?"* |
+| **Confidence Scoring** | Setiap jawaban disertai skor kepercayaan (0-100%) |
+| **Structured Official Sources** | Sumber: Kemenkes, BPOM, Polri, Kominfo, Lembaga fact-check resmi |
+| **Multi-turn Conversation** | Konteks dipertahankan untuk follow-up question |
+| **Action Buttons** | 🎤 Voice input, 🔗 Attach URL, 🔄 Reset chat |
+| **Source Citations** | Setiap klaim dirujuk ke dokumen/resmi dengan link |
+
+### 🔧 Teknologi Chatbot
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    CHATBOT PIPELINE                     │
+├─────────────────────────────────────────────────────────┤
+│  User Query                                             │
+│       │                                                 │
+│       ▼                                                 │
+│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐  │
+│  │ Intent      │───▶│ Knowledge   │───▶│ Response    │  │
+│  │ Classification   │ Retrieval   │    │ Generation  │  │
+│  │ (BERT/      │    │ (Vector DB  │    │ (LLM +     │  │
+│  │  IndoBERT)  │    │  + RAG)     │    │  Template) │  │
+│  └─────────────┘    └─────────────┘    └─────────────┘  │
+│       │                   │                   │          │
+│       ▼                   ▼                   ▼          │
+│  Confidence         Source              Structured     │
+│  Scoring            Citations           Output + UI    │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 📱 Akses Chatbot
+
+| Platform | Lokasi | Status |
+|----------|--------|--------|
+| **Web** | `/chatbot` (header nav) + Floating button di halaman laporan | ✅ Beta |
+| **Mobile** | Tab "Asisten AI" di bottom nav | ✅ Beta |
+| **Admin** | Panel sidebar untuk quick-check saat verifikasi | ✅ Beta |
+
+### 💡 Contoh Penggunaan
+
+```
+User: "Apakah benar vaksin COVID menyebabkan infertilitas?"
+
+Bot: 
+🤖 **Jawaban: TIDAK BENAR** (Confidence: 94%)
+
+📋 **Analisis:**
+Klaim ini merupakan hoaks yang beredar sejak 2021. Tidak ada bukti 
+ilmiah yang mendukung hubungan vaksin COVID-19 dengan infertilitas.
+
+📚 **Sumber Resmi:**
+1. Kemenkes RI - "Mitos & Fakta Vaksin COVID-19" (2023)
+2. WHO - "COVID-19 vaccines and fertility" (2022)
+3. BPOM - "Survei Keamanan Vaksin COVID-19" (2023)
+
+🔗 [Baca selengkapnya di Kemenkes]  [Lihat data WHO]  [Laporan BPOM]
+
+[🎤 Tanya Lagi]  [🔗 Lampirkan URL]  [🔄 Reset]
+```
+
+---
 
 ## ✨ Key Features
 
