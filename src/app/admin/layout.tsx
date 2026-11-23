@@ -12,10 +12,10 @@ import {
   Settings,
   Shield,
   Bot,
-  Sparkles,
   ChevronLeft,
-  ChevronRight,
   LogOut,
+  User,
+  Bell,
 } from 'lucide-react';
 
 const navigation = [
@@ -39,26 +39,19 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
     <>
       <Header onMenuClick={() => setMobileMenuOpen(true)} />
       
-      <div className="fixed inset-y-0 left-0 z-40 w-64 bg-slate-900/80 backdrop-blur-sm border-r border-slate-800/50 transform transition-transform duration-300 ease-in-out lg:translate-x-0"
+      <aside
+        className="fixed inset-y-0 left-0 z-40 w-64 bg-slate-900/95 backdrop-blur-sm border-r border-slate-800/50 transform transition-transform duration-300 ease-in-out lg:translate-x-0"
         style={{ transform: sidebarOpen ? 'translateX(0)' : 'translateX(-100%)' }}
         aria-label="Sidebar navigasi"
       >
         <div className="flex h-full flex-col">
-          <div className="flex items-center justify-between h-16 px-4 border-b border-slate-800/50">
+          <div className="flex items-center h-16 px-4 border-b border-slate-800/50">
             <Link
               href="/admin"
               className="text-lg font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple rounded-lg px-1"
             >
               GARUDA<span className="text-neon-purple">.</span>
             </Link>
-            <button
-              type="button"
-              className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800"
-              onClick={() => setMobileMenuOpen(false)}
-              aria-label="Tutup sidebar"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </button>
           </div>
 
           <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto" aria-label="Menu utama">
@@ -70,9 +63,9 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                   href={item.href}
                   aria-current={isActive(item.href) ? 'page' : undefined}
                   className={cn(
-                    'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400',
+                    'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400',
                     isActive(item.href)
-                      ? 'bg-slate-800 text-neon-purple border border-slate-700'
+                      ? 'bg-slate-800 text-neon-purple'
                       : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
                   )}
                   onClick={() => setMobileMenuOpen(false)}
@@ -85,16 +78,25 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           </nav>
 
           <div className="p-3 border-t border-slate-800/50">
-            <div className="rounded-xl bg-slate-800/30 border border-slate-800/50 p-3">
-              <p className="text-xs text-slate-400 mb-2">Fitur Baru</p>
-              <div className="flex items-center gap-2 text-xs text-slate-300">
-                <Sparkles className="h-3 w-3 text-amber-400 flex-shrink-0" />
-                <span>Integrity Check & AI Assistant</span>
+            <div className="flex items-center gap-3 px-3 py-2.5 text-sm">
+              <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center flex-shrink-0">
+                <User className="w-4 h-4 text-slate-400" />
               </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-slate-100 truncate font-medium">Admin PNP</p>
+                <p className="text-xs text-slate-500 truncate">admin@pnp.go.id</p>
+              </div>
+              <button
+                type="button"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+                aria-label="Notifikasi"
+              >
+                <Bell className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>
-      </div>
+      </aside>
 
       {mobileMenuOpen && (
         <div
@@ -114,8 +116,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       </button>
 
       <main
-        className="lg:pl-64 pt-20 min-h-screen bg-slate-900 text-slate-100 transition-all duration-300"
-        style={{ marginLeft: sidebarOpen ? '16rem' : '0' }}
+        className="lg:pl-64 pt-20 min-h-screen bg-slate-900 text-slate-100"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
           {children}
