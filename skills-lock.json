@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "skills": {
+    "anti-ui-slop": {
+      "source": "uizze.com",
+      "sourceType": "well-known",
+      "computedHash": "cdb9293f9d8461b525a42949d5f3509754c42efa2eab11f20d406b16270eb867"
+    },
+    "caveman": {
+      "source": "juliusbrussee/caveman",
+      "sourceType": "github",
+      "skillPath": "skills/caveman/SKILL.md",
+      "computedHash": "2bc96f7c5d3c82f76714d9ec5027ef72518ede527b009a4cab6afd6db339ada9"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "93f53fd1c0352d3d7ec17b8f73d7351bf76f4821e55d123c9d2abc2c53ba48e4"
+    },
+    "ui-radar": {
+      "source": "uizze.com",
+      "sourceType": "well-known",
+      "computedHash": "34305420bba52f3fe7d1d3b2dd355b64ccf12de7411cbbf4557a1231e8ef8ddb"
+    }
+  }
+}

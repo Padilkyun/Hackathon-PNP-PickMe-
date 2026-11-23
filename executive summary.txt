@@ -1,0 +1,74 @@
+================================================================================
+EXECUTIVE SUMMARY — PICKME GARUDA (Juara 1 Hackathon PNP — Literasi Berita)
+================================================================================
+
+1. NARASI PERMASALAHAN & DATA KONKRET
+--------------------------------------------------------------------------------
+Hoaks dan misinformasi menjadi ancaman serius bagi stabilitas sosial &
+demokrasi di Indonesia. Survei Reuters Institute (2024) menunjukkan
+tingkat kepercayaan masyarakat Indonesia terhadap berita daring hanya
+sekitar 38%, sementara penetrasi media sosial mencapai 75% populasi.
+Kurangnya platform yang (a) memverifikasi keaslian berita secara
+kolaboratif, (b) melibatkan pemerintah sebagai otoritas penjamin
+faktual, dan (c) memberikan ruang tanya-jawab interaktif bagi pembaca,
+menyebabkan siklus disinformasi yang sulit diputus. Banyak platform
+cek fakta yang ada masih satu arah (verifikator → publik), tanpa ruang
+diskusi terbuka yang dapat mengedukasi pembaca.
+
+2. PROBLEM STATEMENT & SOLUSI
+--------------------------------------------------------------------------------
+Problem Statement: Bagaimana membangun platform kolaboratif antara
+masyarakat (pembaca) dan pemerintah (lembaga verifikasi resmi) untuk
+memvalidasi keaslian berita, mencegah hoaks, dan meningkatkan literasi
+melalui mekanisme tanya-jawab yang interaktif — termasuk di dalamnya
+perlindungan dari spam dan bot?
+
+Solusi: PICKME GARUDA — platform dua arah berbasis web (Next.js) &
+mobile (Flutter) dengan komponen utama:
+- Ruang pelaporan berita oleh pembaca untuk diverifikasi.
+- Dashboard pemerintah/lembaga verifikasi (fact-checker resmi) yang
+  menandai status: Valid / Hoaks / Misleading.
+- Fitur diskusi tanya-jawab interaktif antara pembaca dan verifikator.
+- Modul spam detection (NLP + heuristic) untuk menjaga kualitas
+  diskusi.
+
+3. ALUR FLOW PROGRAM (GENERAL)
+--------------------------------------------------------------------------------
+- Onboarding: User login (NextAuth) → pilih peran (pembaca /
+  verifikator pemerintah).
+- Pelaporan berita: Pembaca submit URL/teks berita + kategori.
+  Sistem menjalankan preprocessing NLP (tokenisasi, stopword removal,
+  ekstraksi claim utama).
+- Spam detection: Modul ML mengklasifikasikan apakah input adalah
+  spam/bot menggunakan fitur (frekuensi submit, kemiripan teks,
+  pola URL, perilaku user).
+- Verifikasi: Verifikator pemerintah menerima antrean laporan → review
+  → set label status (Valid / Hoaks / Menyesatkan / Belum terkonfirmasi)
+  + komentar edukatif.
+- Diskusi: Pembaca dapat bertanya di kolom komentar per berita.
+  Pertanyaan masuk ke thread yang dijawab verifikator.
+- Notifikasi: Update status dikirim ke pelapor awal via push
+  notification.
+
+4. TECH STACK
+--------------------------------------------------------------------------------
+- Frontend Web: Next.js (React), Tailwind CSS
+- Mobile: Flutter
+- Backend: Node.js / REST API + WebSocket untuk real-time notifikasi
+- Database: PostgreSQL / Firestore
+- ML/NLP: Python (scikit-learn / transformers) untuk spam detection &
+  claim extraction
+- Autentikasi: NextAuth / Firebase Auth
+- Deployment: Vercel (web), Cloud Run (backend)
+- Dokumentasi: Slide presentasi (.pptm & .ppsx) terlampir
+
+5. IMPACT
+--------------------------------------------------------------------------------
+- Meraih Juara 1 pada Hackathon PNP (Politeknik Negeri Padang).
+- Menjadi blueprint platform kolaboratif literasi digital yang
+  mengintegrasikan tiga pihak: pembaca, verifikator pemerintah, dan
+  algoritma otomatis.
+- Mengurangi risiko misinformasi melalui filter spam + verifikasi
+  resmi, sehingga kepercayaan publik terhadap berita daring meningkat.
+- Portofolio fullstack: Next.js + Flutter + ML + real-time backend —
+  nilai jual tinggi untuk posisi fullstack/AI engineer.

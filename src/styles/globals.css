@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom dark mode variables */
+:root {
+  --color-bg-primary: #0F172A;
+  --color-bg-secondary: #1E293B;
+  --color-text-primary: #F1F5F9;
+  --color-text-muted: #94A3B8;
+  --accent-color: #A855F7; /* neon purple */
+}
+
+.dark {
+  --color-bg-primary: #0F172A;
+  --color-bg-secondary: #1E293B;
+  --color-text-primary: #F1F5F9;
+  --color-text-muted: #94A3B8;
+  --accent-color: #A855F7;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
