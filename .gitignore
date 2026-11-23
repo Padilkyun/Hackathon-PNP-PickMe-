@@ -53,8 +53,9 @@ android_app/.flutter-plugins-dependencies
 android_app/.packages
 android_app/pubspec.lock
 
-# images (large files)
+# images (large files) - except docs/screenshots
 *.png
+!docs/screenshots/*.png
 *.jpg
 *.jpeg
 *.gif
