@@ -11,107 +11,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
----
 
-## 🎯 Prototype Showcase
-
-### 🌐 Web Application (Next.js 14 + Tailwind)
-
-#### 1. **Landing Page — Public Entry Point**
-<a href="docs/screenshots/web-01-landing.png" target="_blank">
-  <img src="docs/screenshots/web-01-landing.png" style="max-width: 100%; height: auto;" alt="Landing Page" />
-</a>
-
-**Features:** Hero dengan neon accent, animated stats counter, CTA ke halaman lapor & admin, responsive grid, dark mode default.
-
-#### 2. **Halaman Lapor (Submit Report) — User Flow**
-<a href="docs/screenshots/web-02-submit.png" target="_blank">
-  <img src="docs/screenshots/web-02-submit.png" style="max-width: 100%; height: auto;" alt="Submit Report" />
-</a>
-
-**Features:** Validasi real-time URL, preview metadata otomatis, character counter, spam warning, draft autosave.
-
-#### 3. **Admin Dashboard — Command Center**
-<a href="docs/screenshots/web-03-dashboard.png" target="_blank">
-  <img src="docs/screenshots/web-03-dashboard.png" style="max-width: 100%; height: auto;" alt="Admin Dashboard" />
-</a>
-
-Dashboard utama dengan KPI cards, tren sentimen 7 hari, aktivitas live, distribusi prioritas, AI verdict, dan daftar laporan prioritas tinggi.
-
-**Sidebar Collapsible** — Navigasi bisa di-collapse/expand dengan persistensi localStorage, active indicator, tooltip saat collapsed.
-
-#### 4. **Detail Laporan — Verification Workflow**
-<a href="docs/screenshots/web-04-detail.png" target="_blank">
-  <img src="docs/screenshots/web-04-detail.png" style="max-width: 100%; height: auto;" alt="Detail Report" />
-</a>
-
-Halaman detail lengkap dengan analisis AI, klaim terextrak, fact-check score, sentimen publik, sumber verifikasi cross-reference, dan action buttons untuk verifikator.
-
-#### 5. **Integrity Check — Cross-Reference Tool**
-<a href="docs/screenshots/web-05-integrity.png" target="_blank">
-  <img src="docs/screenshots/web-05-integrity.png" style="max-width: 100%; height: auto;" alt="Integrity Check" />
-</a>
-
-Tool cross-reference otomatis: spam score, domain reputation, SSL certificate, content freshness, similarity check, dan riwayat scan.
-
-#### 6. **Asisten AI — Chatbot Verifikasi**
-<a href="docs/screenshots/web-06-chatbot.png" target="_blank">
-  <img src="docs/screenshots/web-06-chatbot.png" style="max-width: 100%; height: auto;" alt="AI Chatbot" />
-</a>
-
-Chatbot conversational dengan confidence scoring, sumber resmi terstruktur, dan action buttons (voice, attach URL, reset).
-
-#### 7. **Additional Pages**
-| Halaman | Preview |
-|---------|---------|
-| About | <a href="docs/screenshots/web-07-about.png" target="_blank"><img src="docs/screenshots/web-07-about.png" style="max-width: 100%; height: auto; width: 200px;" alt="About" /></a> |
-| Solution | <a href="docs/screenshots/web-08-solution.png" target="_blank"><img src="docs/screenshots/web-08-solution.png" style="max-width: 100%; height: auto; width: 200px;" alt="Solution" /></a> |
-| Flow | <a href="docs/screenshots/web-09-flow.png" target="_blank"><img src="docs/screenshots/web-09-flow.png" style="max-width: 100%; height: auto; width: 200px;" alt="Flow" /></a> |
-| Tech Stack | <a href="docs/screenshots/web-10-tech.png" target="_blank"><img src="docs/screenshots/web-10-tech.png" style="max-width: 100%; height: auto; width: 200px;" alt="Tech" /></a> |
-| Impact | <a href="docs/screenshots/web-11-impact.png" target="_blank"><img src="docs/screenshots/web-11-impact.png" style="max-width: 100%; height: auto; width: 200px;" alt="Impact" /></a> |
-| Contact | <a href="docs/screenshots/web-12-contact.png" target="_blank"><img src="docs/screenshots/web-12-contact.png" style="max-width: 100%; height: auto; width: 200px;" alt="Contact" /></a> |
-
----
-
-### 📱 Mobile Application (Flutter)
-
-#### **Home / Beranda**
-<a href="docs/screenshots/mob-01-home.png" target="_blank">
-  <img src="docs/screenshots/mob-01-home.png" style="max-width: 100%; height: auto; width: 300px;" alt="Mobile Home" />
-</a>
-
-Quick check input, statistik harian, trending hoaks, dan laporan user.
-
-#### **Submit Laporan Mobile**
-<a href="docs/screenshots/mob-02-submit.png" target="_blank">
-  <img src="docs/screenshots/mob-02-submit.png" style="max-width: 100%; height: auto; width: 300px;" alt="Mobile Submit" />
-</a>
-
-Form laporan mobile dengan kategori, input URL/teks, dan kamera scan.
-
-#### **Admin Dashboard Mobile**
-<a href="docs/screenshots/mob-03-dashboard.png" target="_blank">
-  <img src="docs/screenshots/mob-03-dashboard.png" style="max-width: 100%; height: auto; width: 300px;" alt="Mobile Dashboard" />
-</a>
-
-Dashboard admin responsive di mobile dengan sidebar drawer.
-
----
-
-### 📐 Responsive Viewport Variations (Landing Page)
-
-| Device | Viewport | Preview |
-|--------|----------|---------|
-| Desktop HD | 1920×1080 | <a href="docs/screenshots/web-01-landing-desktop-hd.png" target="_blank"><img src="docs/screenshots/web-01-landing-desktop-hd.png" style="max-width: 100%; height: auto; width: 200px;" alt="Desktop HD" /></a> |
-| Desktop HD Ready | 1366×768 | <a href="docs/screenshots/web-01-landing-desktop-hd-ready.png" target="_blank"><img src="docs/screenshots/web-01-landing-desktop-hd-ready.png" style="max-width: 100%; height: auto; width: 200px;" alt="Desktop HD Ready" /></a> |
-| Tablet Portrait | 768×1024 | <a href="docs/screenshots/web-01-landing-tablet-portrait.png" target="_blank"><img src="docs/screenshots/web-01-landing-tablet-portrait.png" style="max-width: 100%; height: auto; width: 200px;" alt="Tablet Portrait" /></a> |
-| Tablet Landscape | 1024×768 | <a href="docs/screenshots/web-01-landing-tablet-landscape.png" target="_blank"><img src="docs/screenshots/web-01-landing-tablet-landscape.png" style="max-width: 100%; height: auto; width: 200px;" alt="Tablet Landscape" /></a> |
-| Mobile SE | 375×667 | <a href="docs/screenshots/web-01-landing-mobile-se.png" target="_blank"><img src="docs/screenshots/web-01-landing-mobile-se.png" style="max-width: 100%; height: auto; width: 150px;" alt="Mobile SE" /></a> |
-| Mobile Plus | 414×896 | <a href="docs/screenshots/web-01-landing-mobile-plus.png" target="_blank"><img src="docs/screenshots/web-01-landing-mobile-plus.png" style="max-width: 100%; height: auto; width: 150px;" alt="Mobile Plus" /></a> |
-
-*Generated otomatis via Playwright — run `npm run screenshots` untuk regenerate. Klik gambar untuk melihat ukuran penuh.*
-
----
 
 ## ✨ Key Features
 
@@ -454,28 +354,7 @@ Dikembangkan untuk **Hackathon PNP (Politeknik Negeri Padang) 2024** — Juara 1
 | **Team Email** | `team@pickme-garuda.dev` |
 | **Hackathon** | Politeknik Negeri Padang |
 
----
 
-## 📸 Screenshot Generation
-
-Screenshot di README ini **di-generate otomatis** via Playwright:
-
-```bash
-# 1. Start dev server
-npm run dev
-
-# 2. Generate screenshots (terminal baru)
-npm run screenshots
-
-# Output: 21 PNG files di docs/screenshots/
-```
-
-| Command | Deskripsi |
-|---------|-----------|
-| `npm run screenshots` | Semua (web + mobile + viewport variations) |
-| `npm run screenshots:web` | Desktop Chrome only |
-| `npm run screenshots:mobile` | Pixel 5 mobile only |
-| `npm run screenshots:report` | Buka HTML report Playwright |
 
 ---
 
