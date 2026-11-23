@@ -27,32 +27,50 @@ export function Header({ onMenuClick }: HeaderProps) {
     pathname === href || pathname.startsWith(`${href}/`);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-slate-900/80 backdrop-blur-sm border-b border-slate-800/50">
+    <header className="fixed inset-x-0 top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/50">
       <nav className="mx-auto max-w-7xl flex items-center justify-between py-3 px-4 sm:px-6 lg:px-8" aria-label="Main">
         <Link
           href="/admin"
-          className="text-lg font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple rounded-lg px-1"
+          className="text-xl font-bold tracking-tight text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple rounded-lg px-1 transition-transform hover:scale-[1.02]"
+          aria-label="GARUDA Dashboard"
         >
           GARUDA<span className="text-neon-purple">.</span>
         </Link>
 
-        <ul className="hidden lg:flex items-center gap-1 text-sm font-medium">
+        <ul className="hidden lg:flex items-center gap-0.5 text-sm font-medium">
           {navigation.map((item) => {
             const Icon = item.icon;
+            const active = isActive(item.href);
             return (
               <li key={item.name}>
                 <Link
                   href={item.href}
-                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  aria-current={active ? 'page' : undefined}
                   className={cn(
-                    'flex items-center gap-2 block rounded-lg px-3 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400',
-                    isActive(item.href)
-                      ? 'text-neon-purple'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                    'relative flex items-center gap-2 rounded-lg px-3 py-2.5',
+                    'transition-all duration-200 ease-out',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-purple/50 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900',
+                    active
+                      ? 'text-neon-purple bg-slate-800/50'
+                      : 'text-slate-300 hover:text-white hover:bg-slate-800/50 hover:scale-105 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-neon-purple/10'
                   )}
+                  style={{
+                    transformOrigin: 'center bottom',
+                  } as React.CSSProperties}
                 >
-                  <Icon className="w-4 h-4" />
-                  {item.name}
+                  <Icon className={cn(
+                    'w-4 h-4 flex-shrink-0 transition-transform duration-200',
+                    active ? 'text-neon-purple' : 'text-slate-400 group-hover:text-white'
+                  )} aria-hidden="true" />
+                  <span className={cn(
+                    'font-medium tracking-wide',
+                    active ? 'text-neon-purple' : ''
+                  )}>
+                    {item.name}
+                  </span>
+                  {active && (
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-neon-purple animate-pulse" aria-hidden="true" />
+                  )}
                 </Link>
               </li>
             );
@@ -61,7 +79,7 @@ export function Header({ onMenuClick }: HeaderProps) {
 
         <button
           type="button"
-          className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+          className="lg:hidden inline-flex items-center justify-center p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 transition-colors"
           onClick={() => onMenuClick?.()}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -74,7 +92,7 @@ export function Header({ onMenuClick }: HeaderProps) {
       {open && (
         <div
           id="mobile-menu"
-          className="lg:hidden fixed inset-0 top-[57px] z-50 flex flex-col bg-slate-900/95 backdrop-blur-sm p-6"
+          className="lg:hidden fixed inset-0 top-[57px] z-50 flex flex-col bg-slate-900/95 backdrop-blur-sm p-6 animate-slideDown"
           role="dialog"
           aria-modal="true"
           aria-label="Menu navigasi"
@@ -82,7 +100,7 @@ export function Header({ onMenuClick }: HeaderProps) {
           <div className="flex justify-end">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+              className="inline-flex items-center justify-center p-2 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 transition-colors"
               onClick={() => setOpen(false)}
               autoFocus
               aria-label="Tutup menu"
@@ -93,20 +111,21 @@ export function Header({ onMenuClick }: HeaderProps) {
           <nav className="flex-1 flex flex-col justify-center gap-2">
             {navigation.map((item) => {
               const Icon = item.icon;
+              const active = isActive(item.href);
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  aria-current={isActive(item.href) ? 'page' : undefined}
+                  aria-current={active ? 'page' : undefined}
                   className={cn(
-                    'flex items-center gap-3 rounded-xl px-4 py-3 text-lg font-medium transition-colors',
-                    isActive(item.href)
-                      ? 'text-neon-purple'
-                      : 'text-slate-100 hover:bg-slate-800'
+                    'flex items-center gap-3 rounded-xl px-4 py-3 text-lg font-medium transition-all duration-200',
+                    active
+                      ? 'text-neon-purple bg-slate-800/50'
+                      : 'text-slate-100 hover:bg-slate-800 hover:scale-[1.02] hover:pl-1'
                   )}
                   onClick={() => setOpen(false)}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className={cn('w-5 h-5 transition-transform duration-200', active ? 'text-neon-purple' : 'text-slate-400')} aria-hidden="true" />
                   {item.name}
                 </Link>
               );
@@ -114,6 +133,21 @@ export function Header({ onMenuClick }: HeaderProps) {
           </nav>
         </div>
       )}
+      <style jsx>{`
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-slideDown {
+          animation: slideDown 0.2s ease-out;
+        }
+      `}</style>
     </header>
   );
 }
